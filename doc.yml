@@ -1,0 +1,313 @@
+openapi: 3.0.0
+info:
+  title: iot_doc
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+
+paths:
+  /api/User/sign-up/:
+    post:
+      summary: ''
+      operationId: post-api-User-sign-up
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                gender:
+                  type: string
+                  description: male or female
+                blood_type:
+                  type: string
+                  description: 'one of {A B O AB}'
+                age:
+                  type: string
+                height:
+                  type: string
+                weight:
+                  type: string
+              required:
+                - username
+                - password
+                - gender
+                - blood_type
+            examples: {}
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: ''
+  /api/User/token/:
+    post:
+      summary: ''
+      operationId: post-api-User-token
+      responses:
+        '200':
+          description: OK
+      description: Get JWT Token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+              required:
+                - username
+                - password
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              properties: {}
+          text/html:
+            schema:
+              type: object
+              properties: {}
+          text/plain:
+            schema:
+              type: string
+        description: ''
+  /api/Accelo/CreateRecord/:
+    post:
+      summary: ''
+      operationId: post-api-Accelo-CreateRecord
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+      description: ''
+      security:
+        - API Key - 1: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID_of_device:
+                  type: string
+                x:
+                  type: string
+                'y':
+                  type: string
+                z:
+                  type: string
+                roll:
+                  type: string
+                pitch:
+                  type: string
+                yaw:
+                  type: string
+                psi:
+                  type: string
+                theta:
+                  type: string
+                phi:
+                  type: string
+                labeled:
+                  type: string
+              required:
+                - ID_of_device
+                - x
+                - 'y'
+                - z
+  /api/Pulse/CreateRecord/:
+    parameters: []
+    post:
+      summary: ''
+      operationId: post-api-Pulse-CreateRecord
+      responses:
+        '200':
+          description: OK
+      security:
+        - API Key - 1: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Device_ID:
+                  type: string
+                HeartRate:
+                  type: string
+                Temp:
+                  type: string
+                Auxiliary1:
+                  type: string
+                Auxiliary2:
+                  type: string
+                Auxiliary3:
+                  type: string
+                labeled:
+                  type: string
+              required:
+                - Device_ID
+  /api/Devices/CreateRecord/:
+    parameters: []
+    post:
+      summary: ''
+      operationId: post-api-Devices-CreateRecord
+      responses:
+        '200':
+          description: OK
+      security:
+        - API Key - 1: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID_of_device:
+                  type: string
+                labeled:
+                  type: string
+                parameter1:
+                  type: string
+                parameter2:
+                  type: string
+                parameter3:
+                  type: string
+                parameter4:
+                  type: string
+                parameter5:
+                  type: string
+                parameter6:
+                  type: string
+                parameter7:
+                  type: string
+                parameter8:
+                  type: string
+                parameter9:
+                  type: string
+                parameter10:
+                  type: string
+                  description: parameter10 ........ parameter400
+                parameter400:
+                  type: string
+              required:
+                - ID_of_device
+      description: post devices parameters
+  /api/Devices/Filtered/:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-api-Devices-ViewRecords
+      description: |-
+        Get items by Devices App
+        Fitered by user's records
+      security:
+        - API Key - 1: []
+    parameters: []
+
+  /api/Accelo/Filtered/:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-api-Accelo-ViewRecords
+      description: |-
+        Get items by Accelo App
+        Fitered by user's records
+      security:
+        - API Key - 1: []
+    parameters: []
+
+  /api/Pulse/Filtered/:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-api-Pulse-ViewRecords
+      description: |-
+        Get items by Accelo App
+        Fitered by user's records
+      security:
+        - API Key - 1: []
+    parameters: []
+
+  /api/Pulse/ViewRecords/:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-api-Pulse-ViewRecords-all
+      description: |
+        Get items by Pulse App
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+        description: ''
+    parameters: []
+
+  /api/Accelo/ViewRecords/:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-api-Accelo-ViewRecords-all
+      description: |
+        Get items by Pulse App
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+        description: ''
+    parameters: []
+
+  /api/Devices/ViewRecords/:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-api-Devices-ViewRecords-all
+      description: |
+        Get items by Pulse App
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+        description: ''
+    parameters: []
+
+
+
+
+
+components:
+  securitySchemes:
+    API Key - 1:
+      type: http
+      scheme: bearer
+security:
+  - API Key - 1: []
+
+

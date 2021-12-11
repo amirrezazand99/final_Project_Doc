@@ -1,0 +1,14 @@
+version: "3"
+services:
+    clearsight-document:
+        container_name: clearsight_document
+        image: swaggerapi/swagger-editor
+        ports:
+            - "9090:8080"
+        volumes:
+            - .:/tmp
+        environment:
+            - BASE_URL=/docs
+            - SWAGGER_FILE=/tmp/openapi.yaml
+        restart: always
+
