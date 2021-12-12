@@ -4,7 +4,6 @@ info:
   version: '1.0'
 servers:
   - url: 'http://localhost:3000'
-
 paths:
   /api/User/sign-up/:
     post:
@@ -125,6 +124,9 @@ paths:
                   type: string
                 labeled:
                   type: string
+                Preprocessed:
+                  type: string
+                  description: '''0'' or ''1'''
               required:
                 - ID_of_device
                 - x
@@ -160,6 +162,9 @@ paths:
                   type: string
                 labeled:
                   type: string
+                Preprocessed:
+                  type: string
+                  description: '''0'' or ''1'''
               required:
                 - Device_ID
   /api/Devices/CreateRecord/:
@@ -205,54 +210,18 @@ paths:
                   description: parameter10 ........ parameter400
                 parameter400:
                   type: string
+                Preprocessed:
+                  type: string
+                  description: '''0'' or ''1'''
               required:
                 - ID_of_device
       description: post devices parameters
-  /api/Devices/Filtered/:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-api-Devices-ViewRecords
-      description: |-
-        Get items by Devices App
-        Fitered by user's records
-      security:
-        - API Key - 1: []
-    parameters: []
-
-  /api/Accelo/Filtered/:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-api-Accelo-ViewRecords
-      description: |-
-        Get items by Accelo App
-        Fitered by user's records
-      security:
-        - API Key - 1: []
-    parameters: []
-
-  /api/Pulse/Filtered/:
-    get:
-      summary: Your GET endpoint
-      tags: []
-      responses: {}
-      operationId: get-api-Pulse-ViewRecords
-      description: |-
-        Get items by Accelo App
-        Fitered by user's records
-      security:
-        - API Key - 1: []
-    parameters: []
-
   /api/Pulse/ViewRecords/:
     get:
       summary: Your GET endpoint
       tags: []
       responses: {}
-      operationId: get-api-Pulse-ViewRecords-all
+      operationId: get-api-Pulse-ViewRecords
       description: |
         Get items by Pulse App
       requestBody:
@@ -262,6 +231,37 @@ paths:
               type: object
               properties: {}
         description: ''
+    parameters: []
+  /api/Accelo/Filtered/:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-api-Accelo-ViewRecords
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+      description: |
+        filtered
+      security:
+        - API Key - 1: []
+    parameters: []
+  /api/Pulse/Filtered/:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-api-Pulse-ViewRecords-byUser
+      description: |-
+        Get items by Accelo App
+        Fitered by user's records
+      security:
+        - API Key - 1: []
     parameters: []
 
   /api/Accelo/ViewRecords/:
@@ -280,7 +280,6 @@ paths:
               properties: {}
         description: ''
     parameters: []
-
   /api/Devices/ViewRecords/:
     get:
       summary: Your GET endpoint
@@ -298,9 +297,18 @@ paths:
         description: ''
     parameters: []
 
-
-
-
+  /api/Devices/Filtered/:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-api-Devices-ViewRecords-byUser
+      description: |-
+        Get items by Accelo App
+        Fitered by user's records
+      security:
+        - API Key - 1: []
+    parameters: []
 
 components:
   securitySchemes:
@@ -309,5 +317,3 @@ components:
       scheme: bearer
 security:
   - API Key - 1: []
-
-
