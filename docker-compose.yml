@@ -1,7 +1,7 @@
 version: "3"
 services:
     clearsight-document:
-        container_name: clearsight_document
+        container_name: iot_document
         image: swaggerapi/swagger-editor
         ports:
             - "9090:8080"
@@ -9,6 +9,6 @@ services:
             - .:/tmp
         environment:
             - BASE_URL=/docs
-            - SWAGGER_FILE=/tmp/openapi.yaml
+            - SWAGGER_FILE=/tmp/doc.yaml
         restart: always
 
