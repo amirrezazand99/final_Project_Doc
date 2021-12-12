@@ -34,11 +34,18 @@ paths:
                   type: string
                 weight:
                   type: string
+                email:
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
               required:
                 - username
                 - password
                 - gender
                 - blood_type
+                - email
             examples: {}
           application/xml:
             schema:
