@@ -96,10 +96,10 @@ paths:
       responses:
         '200':
           description: OK
-#       parameters:
-#         - schema:
-#             type: string
-#           in: header
+      #       parameters:
+      #         - schema:
+      #             type: string
+      #           in: header
       description: ''
       security:
         - API Key - 1: []

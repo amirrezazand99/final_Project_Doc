@@ -9,6 +9,6 @@ services:
             - .:/tmp
         environment:
             - BASE_URL=/docs
-            - SWAGGER_FILE=/tmp/doc.yml
+            - SWAGGER_FILE=/tmp/doc2.yml
         restart: always
 
