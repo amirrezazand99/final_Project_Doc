@@ -96,10 +96,10 @@ paths:
       responses:
         '200':
           description: OK
-      #       parameters:
-      #         - schema:
-      #             type: string
-      #           in: header
+#       parameters:
+#         - schema:
+#             type: string
+#           in: header
       description: ''
       security:
         - API Key - 1: []
@@ -238,20 +238,7 @@ paths:
       operationId: get-api-Pulse-ViewRecords
       description: |
         Get items by Pulse App
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties: {}
-          application/xml:
-            schema:
-              type: object
-              properties:
-                '"list_of_all_property"':
-                  type: string
-        description: ''
-    parameters: []
+
   /api/Accelo/Filtered/:
     get:
       summary: Your GET endpoint
@@ -270,17 +257,6 @@ paths:
         '404':
           description: Not Found
       operationId: get-api-Accelo-ViewRecords
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties: {}
-          application/xml:
-            schema:
-              type: object
-              properties: {}
-        description: ''
       description: |
         filtered
       security:
@@ -302,19 +278,7 @@ paths:
       operationId: get-api-Accelo-ViewRecord
       description: |
         Get items by Pulse App
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties: {}
-          application/xml:
-            schema:
-              type: object
-              properties:
-                '"list_of_all_property"':
-                  type: string
-        description: ''
+    
     parameters: []
   /api/Devices/ViewRecords/:
     get:
@@ -331,19 +295,7 @@ paths:
       operationId: get-api-devices-ViewRecords-all
       description: |
         Get items by Pulse App
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties: {}
-          application/xml:
-            schema:
-              type: object
-              properties:
-                '"list_of_all_property"':
-                  type: string
-        description: ''
+     
     parameters: []
 
   /api/Devices/Filtered/:
@@ -364,17 +316,7 @@ paths:
         '404':
           description: Not Found
       operationId: get-api-Devices-filtered
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties: {}
-          application/xml:
-            schema:
-              type: object
-              properties: {}
-        description: ''
+   
       description: |
         filtered
       security:
