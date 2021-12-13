@@ -1,3 +1,4 @@
+Milad, 5:42 PM
 openapi: 3.0.1
 info:
   title: iot_doc
@@ -102,7 +103,8 @@ paths:
 #           in: header
       description: ''
       security:
-        - API Key - 1: []
+        - Authorization: []
+
       requestBody:
         content:
           application/json:
@@ -148,7 +150,8 @@ paths:
         '200':
           description: OK
       security:
-        - API Key - 1: []
+        - Authorization: []
+
       requestBody:
         content:
           application/json:
@@ -183,7 +186,8 @@ paths:
         '200':
           description: OK
       security:
-        - API Key - 1: []
+        - Authorization: []
+
       requestBody:
         content:
           application/json:
@@ -260,7 +264,8 @@ paths:
       description: |
         filtered
       security:
-        - API Key - 1: []
+        - Authorization: []
+
     parameters: []
 
   /api/Accelo/ViewRecords/:
@@ -320,13 +325,14 @@ paths:
       description: |
         filtered
       security:
-        - API Key - 1: []
+        - Authorization: []
+
     parameters: []
 
 components:
+  schemas: {}
   securitySchemes:
-    API Key - 1:
+    Authorization:
       type: http
       scheme: bearer
-security:
-  - API Key - 1: []
+      description: JWT Bearer token
